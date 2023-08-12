@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container display-none">
+      <header>
+        <!-- left-side -->
+        <div class="header-logo">
+          <img src="img/library.svg" alt="logo" />
+          <p>Library</p>
+        </div>
+        <!-- right-side -->
+        <div class="profile">
+          <button id="sync" type="button">
+            <img src="img/sync.svg" alt="sync" />
+          </button>
+          <img id="profile-pic" src="img/profile.svg" alt="profile" />
+          <p id="profile-name"><a href="http://">Log In</a></p>
+        </div>
+      </header>
+
+      <!-- mid-section row -->
+      <section id="order-sort-theme">
+        <div class="display-book">
+          <select name="display" id="display-book">
+            <option value="all">ALL</option>
+            <option value="read">Read</option>
+            <option value="not-read">Not Read</option>
+          </select>
+        </div>
+        <div class="sort-book">
+          <select name="sort" id="sort-book">
+            <option value="publish-date">Published Date</option>
+            <option value="insertion-date" selected>Insertion Date</option>
+          </select>
+        </div>
+        <div class="theme-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <label for="theme-toggle" class="slider"> </label>
+        </div>
+        <div class="add-book">
+          <button type="button" class="btn btn-light-red">
+            <img src="img/add.svg" alt="add" />
+          </button>
+        </div>
+      </section>
+
+      <!-- main section -->
+      <main>
+        <section class="library-panel">
+          <!-- book card -->
+        </section>
+        <!-- article.book>(div.book-info>p.book-title*4)+div.button-group>button.btn.btn-light-red+button.btn -->
+      </main>
+      <footer class="footer">
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          nikazoro
+        </p>
+        <a href="https://github.com/nikazoro" target="_blank">
+          <i style="font-size:24px" class="fa">&#xf09b;</i>
+        </a>
+      </footer>
+
+      <div class="modal" id="addBookModal">
+        <form class="add-book-form" id="addBookForm">
+          <h3>Add new book</h3>
+          <input
+            class="input"
+            type="text"
+            id="title"
+            placeholder="Title"
+            required
+            maxlength="100"
+          />
+
+          <input
+            class="input"
+            type="text"
+            id="author"
+            placeholder="Author"
+            required
+            maxlength="100"
+          />
+
+          <div class="published-date">
+            <label for="Published date">Published date:</label>
+            <input type="date" id="published-date" name="published-date" />
+          </div>
+
+          <input
+            class="input"
+            type="number"
+            id="pages"
+            placeholder="Pages"
+            required
+            max="15433"
+          />
+          <div class="is-read">
+            <label for="completed">Completed:</label>
+            <input type="checkbox" id="completed" />
+            <label for="completed" class="slider"> </label>
+          </div>
+          <button class="btn btn-light-green" type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="modal" id="accountModal"></div>
+      <div class="overlay" id="overlay"></div>
+    </div>
+    <script defer src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+:root {
+  --white: #fffbfb;
+  --grey: #f0eef1;
+  --grey-light-1: #f7f7f7;
+  --black: #050505;
+  --red: #ff7070;
+  --light-green: #9fff9c;
+  --light-red: #ff9c9c;
+  --spacing-xs: 5px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --border-radius: 8px;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script|Roboto:400,700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  word-wrap: break-word;
+  /* footer support */
+  margin-bottom: 100px;
+}
+
+header {
+  height: 15vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(239, 184, 162, 0.8),
+    rgba(188, 179, 181, 0.8)
+  );
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: 3rem;
+  width: auto;
+}
+
+.header-logo p {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  padding: 1.5rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#sync {
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 150px;
+  border: 0;
+  background-color: transparent;
+}
+
+#sync:hover {
+  transform: rotate(30deg);
+  cursor: pointer;
+}
+
+#sync:hover:active {
+  transform: rotate(80deg);
+}
+
+#profile-pic {
+  border-radius: 50%;
+  border: 1px solid var(--color-grey-dark-2);
+  margin: 20px;
+}
+
+#profile-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#profile-name a:hover:active {
+  color: whitesmoke;
+}
+
+#profile-name a:link {
+  color: var(--color-grey-dark-3);
+}
+
+/* second header */
+
+#order-sort-theme {
+  display: flex;
+  justify-content: left;
+  height: 10vh;
+  background-color: var(--grey);
+  align-items: center;
+  padding: 0 5rem;
+  gap: 2rem;
+}
+
+#order-sort-theme select {
+  font-size: 1rem;
+  border: 0;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: var(--grey);
+  color: var(--color-grey-dark-3);
+}
+
+#order-sort-theme select:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+#order-sort-theme button {
+  filter: brightness(1.5);
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle {
+  display: none;
+}
+
+#theme-toggle:checked + .slider {
+  background-color: #2196f3;
+}
+
+#theme-toggle:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.add-book button {
+  border-radius: 150px;
+  border: 0;
+  background-color: transparent;
+}
+
+.add-book button:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.add-book button:active {
+  transform: translateY(5px);
+}
+
+.add-book img {
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: transparent;
+}
+
+/* main */
+
+.library-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  border: 0;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+}
+
+.book-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.book-author {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-grey-dark-3);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.book-pages {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-grey-dark-3);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.book-published-date {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-grey-dark-3);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.btn-group .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: green;
+}
+
+.btn-group .remove {
+  background-color: var(--red);
+}
+
+.btn-group .btn:hover {
+  filter: brightness(1.4);
+  transform: translateY(-2px);
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  background-color: var(--grey);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in-out;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.add-book-form button {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px;
+  border: 0;
+  border-radius: var(--border-radius);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.published-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.published-date input {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 10px;
+  border: 0;
+  border-radius: var(--border-radius);
+}
+
+.published-date label {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px;
+  border: 0;
+  border-radius: var(--border-radius);
+}
+
+.is-read {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.is-read label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s ease;
+}
+
+#completed {
+  display: none;
+}
+
+#completed:checked + .slider {
+  background-color: #2196f3;
+}
+
+#completed:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+#addBookForm button[type="submit"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: green;
+}
+
+#addBookForm button[type="submit"]:hover {
+  filter: brightness(1.4);
+  transform: translateY(-2px);
+}
+/* Overlay */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: var(--spacing-sm);
+}
+
+.fa {
+  font-size: 24px;
+  color: var(--black);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+  transform: rotate(360deg) scale(1.2);
+}
