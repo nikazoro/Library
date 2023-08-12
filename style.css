@@ -209,12 +209,11 @@ header img {
 
 .library-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
   padding: 2rem;
-  margin: 0 auto;
+  margin: 40px auto;
   max-width: 1400px;
-  border: 0;
 }
 
 .book {
