@@ -170,7 +170,7 @@ library.addBook(
   new Book(
     (title = "Mahabharat"),
     (author = "Ved Vyaas"),
-    (publish_date = "Unknown"),
+    (publish_date = "Before dawn of religions"),
     (pages = "15433"),
     (isRead = false)
   )
@@ -179,6 +179,15 @@ library.addBook(
   new Book(
     (title = "Ramayan"),
     (author = "Valmiki"),
+    (publish_date = "Before dawn of religions"),
+    (pages = "1800"),
+    (isRead = false)
+  )
+);
+library.addBook(
+  new Book(
+    (title = "Atharvaveda"),
+    (author = "Brahmins"),
     (publish_date = "Unknown"),
     (pages = "Unknown"),
     (isRead = false)
@@ -186,17 +195,8 @@ library.addBook(
 );
 library.addBook(
   new Book(
-    (title = "Ramcharitmanas"),
-    (author = "Tulsidas"),
-    (publish_date = "1633"),
-    (pages = "Unknown"),
-    (isRead = false)
-  )
-);
-library.addBook(
-  new Book(
-    (title = "RigVeda"),
-    (author = "Bharat Country People"),
+    (title = "Rigveda"),
+    (author = "Brahmins"),
     (publish_date = "Unknown"),
     (pages = "Unknown"),
     (isRead = false)
